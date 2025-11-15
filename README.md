@@ -1,4 +1,3 @@
-```markdown
 # Tunneling Field Guide
 
 **Author:** Rubab Fatima (rubionic-t1)  
@@ -370,4 +369,3 @@ Internal Host → Outbound TLS → Your Server → You
 > No ticket = no tunnel. Don't be the incident.
 
 **Proof beats posture, every time.**
-```
