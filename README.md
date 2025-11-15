@@ -23,10 +23,9 @@
 9. [Drills (Skill Builders)](#drills-skill-builders)
 10. [Practical Notes & Gotchas](#practical-notes--gotchas)
 11. [Appendix](#appendix)
-
 ---
 
-## 🎯 Guiding Principles
+## Guiding Principles
 
 - **No ticket, no tunnel** - If you can't show who approved it, don't run anything
 - **Logs are your proof** - Your job is to make logs defensible, not assume they exist
@@ -36,7 +35,7 @@
 
 ---
 
-## ⚡ 10-Second Decision Tree
+## 10-Second Decision Tree
 
 | Scenario | Tool | Command |
 |----------|------|---------|
@@ -47,7 +46,7 @@
 
 ---
 
-## 🔒 Before You Tunnel (Real-World First Step)
+## Before You Tunnel (Real-World First Step)
 
 **Complete this checklist BEFORE establishing any tunnel:**
 
@@ -61,28 +60,36 @@
 
 ---
 
-## 📋 Ticket Checklist
+## Ticket Checklist
 
 **Paste this into your engagement ticket:**
+> ### Tunneling Request
+>
+> - **Purpose**: [Vendor access/internal testing/IR data collection]  
+> - **Approver**: [Name, Title]  
+> - **Window**: [Start UTC] - [End UTC]  
+> - **Scope**:  
+>   - Source: [Bastion IP/Hostname]  
+>   - Destination: [Target IP:Port]  
+>   - Protocol: [SSH/Chisel/Ligolo]  
+> - **Command**: [exact command to be executed]  
+> - **Log Location**: [Path to session logs]  
+> - **Teardown Confirmation**: [Process for verification]  
+> - **Fallback**: [Alternative if primary method fails]
 
-```
+---
 
-## 📄 Evidence & Report Template (Paste-Ready)
+## Evidence & Report Template (Paste-Ready)
 
 **Use this template for all tunnel documentation in reports and tickets:**
 
-```
-### TUNNEL ACTIVITY - EVIDENCE SUMMARY
-
-**Purpose**: Vendor admin access / Internal testing / IR data collection  
-**Ticket**: INC-12345 | **Approver**: Jane Doe (Security Manager)  
-**Window**: 2023-10-05T14:00–16:00 UTC  
-**Operator**: [Your Name]
-
-**Command Executed**:
-```bash
+> ### TUNNEL ACTIVITY - EVIDENCE SUMMARY
+> **Purpose**: Vendor admin access / Internal testing / IR data collection  
+> **Ticket**: INC-12345 | **Approver**: Jane Doe (Security Manager)  
+> **Window**: 2023-10-05T14:00–16:00 UTC  
+> **Operator**: [Your Name]
+> **Command Executed**:
 ssh -N -L 127.0.0.1:8443:10.1.5.20:8443 user@bastion
-```
 
 **Evidence Collected**:
 - ✅ Ticket screenshot (ID & approver visible)
@@ -100,18 +107,16 @@ ssh -N -L 127.0.0.1:8443:10.1.5.20:8443 user@bastion
 
 **Signed**: 
 [Operator Name] / [Approver Name]
-```
-
 ### Daily Status Template
-```
-**Tunnel Activity Summary - 2023-10-05**
-- Established SSH tunnel through bastion-02 to app-server-05:8443
-- Purpose: Vendor application testing (INC-12345)
-- Window: 14:00-16:00 UTC
-- Status: Tunnel torn down at 16:00 UTC as scheduled
-- Logs archived: /engagements/client/logs/tunnel_20231005_1400
-- No incidents or unexpected alerts
-```
+
+> **Tunnel Activity Summary - 2023-10-05**
+> - Established SSH tunnel through bastion-02 to app-server-05:8443
+> - Purpose: Vendor application testing (INC-12345)
+> - Window: 14:00-16:00 UTC
+> - Status: Tunnel torn down at 16:00 UTC as scheduled
+> - Logs archived: /engagements/client/logs/tunnel_20231005_1400
+> - No incidents or unexpected alerts
+
 
 ### Quick Evidence Capture Commands
 ```bash
@@ -131,7 +136,7 @@ ss -tnlp | grep <PORT> > listener_check_$(date +%Y%m%d_%H%M).txt
 
 ---
 
-## 🔍 Evidence Checklist
+## Evidence Checklist
 
 **Capture this for every tunnel session:**
 
@@ -145,7 +150,7 @@ ss -tnlp | grep <PORT> > listener_check_$(date +%Y%m%d_%H%M).txt
 
 ---
 
-## 🛠️ Core Tunneling Recipes
+## Core Tunneling Recipes
 
 ### 1. SSH Local Forward (Single Service)
 ```
@@ -241,7 +246,7 @@ Agent (target) ──TLS outbound──▶ your-server:443 (ligolo)
 
 ---
 
-## 🔧 What -N and -R Actually Do
+## What -N and -R Actually Do
 
 ### The `-N` Flag
 ```bash
@@ -263,7 +268,7 @@ ssh -N -R *:9000:127.0.0.1:3000 user@bastion
 
 ---
 
-## 🎙️ SOC Interaction Scripts
+## SOC Interaction Scripts
 
 ### For SSH Forwarding Alerts
 > "Authorized tunneling for engagement ENG-XXX. Ticket INC-12345, approved by [Name]. Session logs available on request. Would you like me to pause for review?"
@@ -304,7 +309,7 @@ ssh -N -R *:9000:127.0.0.1:3000 user@bastion
 
 ---
 
-## 💡 Practical Notes & Gotchas
+## Practical Notes & Gotchas
 
 ### SSH Configuration Issues
 ```bash
@@ -330,7 +335,7 @@ ssh -N -L 127.0.0.1:8443:target:8443 user@bastion
 
 ---
 
-## 📖 Appendix
+## Appendix
 
 ### Quick Reference Flags
 | Flag | Purpose | Example |
@@ -362,11 +367,12 @@ Internal Host → Outbound TLS → Your Server → You
 
 ---
 
-## 🎯 Final Rule
+## Final Rule
 
 > **Tunnels are professional plumbing, not magic.**  
 > The difference between repeat work and incidents isn't technical skill—it's process discipline.  
 > No ticket = no tunnel. Don't be the incident.
 
 **Proof beats posture, every time.**
+
 
