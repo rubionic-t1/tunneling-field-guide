@@ -71,7 +71,7 @@
 
 **Use this template for all tunnel documentation in reports and tickets:**
 
-```markdown
+```
 ### TUNNEL ACTIVITY - EVIDENCE SUMMARY
 
 **Purpose**: Vendor admin access / Internal testing / IR data collection  
@@ -103,7 +103,7 @@ ssh -N -L 127.0.0.1:8443:10.1.5.20:8443 user@bastion
 ```
 
 ### Daily Status Template
-```markdown
+```
 **Tunnel Activity Summary - 2023-10-05**
 - Established SSH tunnel through bastion-02 to app-server-05:8443
 - Purpose: Vendor application testing (INC-12345)
@@ -369,3 +369,4 @@ Internal Host → Outbound TLS → Your Server → You
 > No ticket = no tunnel. Don't be the incident.
 
 **Proof beats posture, every time.**
+
