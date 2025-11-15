@@ -6,7 +6,7 @@
 
 > **If you can reach the bastion, you can reach what it can see.**  
 > **Tunnels are plumbing. Logs are proof.**  
-> The commands are easy — the discipline is the skill.
+>  **The commands are easy — the discipline is the skill. **
 
 ---
 
@@ -273,3 +273,4 @@ Your Laptop → SSH → Bastion → Internal Network
 ```
 
 ---
+
