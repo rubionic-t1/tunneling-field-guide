@@ -88,8 +88,11 @@
 > **Ticket**: INC-12345 | **Approver**: Jane Doe (Security Manager)  
 > **Window**: 2023-10-05T14:00–16:00 UTC  
 > **Operator**: [Your Name]
+>
 > **Command Executed**:
-ssh -N -L 127.0.0.1:8443:10.1.5.20:8443 user@bastion
+> ```
+> ssh -N -L 127.0.0.1:8443:10.1.5.20:8443 user@bastion
+> ```
 
 **Evidence Collected**:
 - ✅ Ticket screenshot (ID & approver visible)
@@ -374,5 +377,6 @@ Internal Host → Outbound TLS → Your Server → You
 > No ticket = no tunnel. Don't be the incident.
 
 **Proof beats posture, every time.**
+
 
 
